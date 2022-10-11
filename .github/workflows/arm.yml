@@ -23,7 +23,7 @@ jobs:
          uses: docker/setup-buildx-action@v2
        - name: cd
          run: |
-          docker build --no-cache -t  messaging-topology-operator:v1 .
+          docker buildx build --platform linux/arm64 --no-cache -t  messaging-topology-operator:v1 .
           docker save -o messaging-topology-operator.tar messaging-topology-operator:v1 
           ls -allh
        - name: Create Release
