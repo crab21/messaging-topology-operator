@@ -17,7 +17,7 @@ COPY internal/ internal/
 COPY rabbitmqclient/ rabbitmqclient/
 
 # Build
-RUN CGO_ENABLED=0 GOOS=linux GO111MODULE=on go build -a -tags timetzdata -o manager main.go
+RUN CGO_ENABLED=0 GOOS=linux GO111MODULE=on GOARCH=arm go build -a -tags timetzdata -o manager main.go
 
 # ---------------------------------------
 FROM alpine:latest as etc-builder
